@@ -1,0 +1,445 @@
+Analysis of Algorithm
+=====================
+Non_linear data structures
+==========================
+Linear Data structure
+-> Linked List
+-> Stack
+-> Queues
+-> Deque
+===============================
+
+Non_Linear Data structure
+-> G= (V->vertices,Node,E->Edges,Links,Arcs)
+
+Def: V-> is a set of Vertices
+Def: E-> is a set of Edges
+
+A Graph is a versatile data structure tha is used 
+whenever we want to represent (pair_wise) contains btn 
+objects.
+
+-> Network of roads in city or country.
+-> Computer Network.
+-> social Network.
+
+*simple Graph: -No self_loop.
+              -No parallel Edges.
+
+*Directed Graph: -Every Edge has direction (Specific).
+
+*Un_Directed Graph: -Every Edge is symmetric.
+
+-Path: is a sequence of Nodes connected by Edges.
+
+-Euleriantour: is a path through the graph that uses every edge
+exactly once.
+
+-Hamiltoniantour: A path through the graph that touches every vertex exactly once.
+
+* Directed Graph: -> In_Degree: Number of Edges in comming to a vertex.
+                  -> Out_Degree: Number of Edges out going from a vertex.
+
+* Un_Directed Graph: 
+deg(v)= Number of Edges adjacent to v.
+
+* A complete graph in data structures is a type of graph where each vertex is connected to every other vertex in the graph.
+
+In a complete graph with n vertices, each vertex is directly connected to the other n-1 vertices, 
+forming a total of n*(n-1)/2 edges. Complete graphs are also known as full graphs because 
+they exhibit maximum connectivity among their vertices.
+
+In a complete graph with n vertices, denoted as K_n:
+
+Each vertex is connected to every other vertex.
+The degree of each vertex is n-1, where n is the total number of vertices.
+The total number of edges in a complete graph with n vertices is n*(n-1)/2.
+Complete graphs are useful in various applications such as network design, optimization problems, 
+and theoretical studies in graph theory.
+
+* A bipartite graph is a type of graph in which the vertices can be divided into two disjoint sets, 
+such that no two vertices within the same set are adjacent.
+
+* Weighted Graph: Graph in which every edge has a number associated with it (weight).
+
+* Planar Graph: Graph that can be Drawn in the Plane without any edge crossings.
+is a type of graph that can be embedded or drawn on a plane without any edges crossing each other.
+
+Characteristics of Planar Graphs:
+
+Embeddability: Planar graphs can be drawn on a plane 
+such that no two edges intersect except at their endpoints.
+
+Regions: Planar graphs divide the plane into regions, 
+with one region being infinite and others being finite.
+
+Finite and Infinite Regions: Finite regions are bounded 
+areas enclosed by edges, while the infinite region extends infinitely.
+
+Planarity Criteria: Various theorems like Kuratowski’s theorem provide 
+conditions to determine if a graph is planar or not based on forbidden subgraphs.
+
+A Graph is Connected if there is a path btn any pair of vertices.
+
+A Tree is a widely used abstract data type that represents a hierarchical tree structure with a set of connected nodes.
+
+A Tree: A cyclic connected Graph.
+
+Spanning Tree Graph: Tree with all the vertices in G and the same of the edges in G.
+
+Rooted Tree: Tree in which a vertex is specifically designated as the root of The Tree
+(Defines a parent_childrelationship btn vertices Every node,except the root,has exactly one parent)
+
+Binary tree: Rooted tree in which every node has at most 2children.
+.left child
+.right child
+.Leaf node has no child
+.Internal node: Not a Leaf
+
+Full Binary Tree: Binary Tree in which all the Leaves are at the same level and
+all internal nodes have 2 children.
+
+Height of the TreeLongest path from root to Leaf.
+
+Binary Search Tree in Data Structure
+
+A Binary Search Tree (BST) is a hierarchical data structure used in computer science 
+to store and organize data in a sorted manner. Each node in a BST has at most two children, 
+a left child, and a right child. The left child contains values less than the parent node, 
+while the right child contains values greater than the parent node. 
+This structure allows for efficient searching, insertion, and deletion operations on the stored data.
+
+Binary search Tree: such that the key in every node is >= the key in its left child and < the key in
+its right child.
+
+BST (ADT) 
+.Value stored are of any type
+.Find(Item t)
+.Insert(Item t)
+.Delete(Item t)
+================
+
+Search(Node root, Item t)
+if root.key == t
+return found
+else if (root.key <t)
+return Search(root.right,t)
+else return Search(root.left,t)
+====================================
+
+Insert(Node root, Item t)
+If(root==nullptr)
+root.key=t
+Else if(root.key<=t)
+Insert(root.right,t)
+else Insert(root.left,t)
+===================================
+
+Delete(Item t)
+if Item t is in Leaf node just detach the
+node from the tree 
+ifb Item t is not in a leaf swap( Item, predecessor
+(t))
+delete predecessor(t)
+=============================================
+
+NB: . predecessor(t)= Right most node in the left subtree of t.
+    . successor(t)= Left most not in the right subtree of t.
+
+Complete Binary Tree
+.Binary Tree with all Levels full, except possibly the last level.
+.In the last level all the nodes are backed to the left without a gap.
+
+Heap(Max or Min)
+===============
+
+Heap: A heap is a specialized tree-based data structure that satisfies the heap property. In a binary heap, which is a type of heap, the key stored in each node is either greater than or equal to (max-heap) or less than or equal to (min-heap) the keys in the node’s children.
+
+Time Complexity: Time complexity refers to the amount of time an algorithm takes to run as a function of the length of its input.
+
+Build_Max_Heap(A,n)
+A.Heap_size=n
+for i=[n/2]down to 1
+Max_Heapify(A,i)
+
+     &&&&&&
+
+max_heapify(A,i)
+L=left(i)
+r=right(i)
+if L<= A.heap_size and A[L]>A[i]
+Largest=L
+else Largest=i
+if r<=A.heap_size and A[r]>A[Largest]
+Largest=r
+if Largest #i
+exchange A[i] with A[Largest]
+Max_heapify(A,Largest)
+
+with Max_Heap
+5 3 17 10 84 19 6 22 9
+5 3 19 22 84 17 6 10 9
+5 84 19 22 3 17 6 10 9
+84 5 19 5 3  17 6 10 9
+84 22 19 10 3 17 6 5 9
+
+with Min_Heap
+84 22 19 10 3 17 6 5 9
+5 3 17 10 84 19 6 22 9
+3 5 6 9 84 19 17 22 10
+3 5 6 9 84 19 17 22 10
+==============================
+Comple Binary Tree
+.Min Heap=>Key in a node is < Keys in its children
+.Max Heap=>Key in node is > Key in its children
+====================================================
+Given a Heap of Height h, what is the maximum number of nodes it can have?
+What is the minimum number of nodes a Heap of Height h can have?
+
+tree traversal
+Inorder:15 12 14 7 16 13 17 
+left,root,right
+preorder: 7 12 15 14 13 16 17
+root,left, right
+postorder: 15 14 12 16 17 13 7
+left,right,root
+==================================================================
+
+Determine the time complexity of the following functions:
+void function(int n){
+int sum=0;
+for (int i=1;i<=n;i*=2){
+sum +=i;
+}}
+
+Answers: In this function, the loop variable i doubles in each iteration until it reaches n.
+The number of iterations can be calculated as log₂(n) because i doubles each time until it reaches n.
+Therefore, the time complexity of this function is O(log n)
+======================================================================================================
+
+void function (int n){
+for (int i =0;i<n;i++){
+for (int j =0; j<sqrt(n);j++){ 
+cout<< i << j; }}}
+
+Answers: The outer loop runs n times.
+The inner loop runs sqrt(n) times.
+As the inner loop depends on the square root of n, the time complexity of this function is O(n√n)
+==============================================================================================================
+
+void function (int n){
+for (int i=0; i<n;i++){
+for(int j=0; j<n;j++){
+for(int k=0; k<n;k++){
+cout <<i << j <<k;}}}}
+
+Answers:  All three loops run from 0 to n.
+As there are three nested loops, the time complexity of this function is O(n³)
+==============================================================================================================
+
+order the following function in ascending order of growth rate, from slowest to fastest growing asymptotic behavior, grouping together those which have the same time complexity.
+.f1(n) = nlogn
+.f2(n)= n + sqrt(n)
+.f3(n)= log(n^n)
+.f4(n)= 2^n
+.f5(n)= 3n - 5
+
+The ascending order of them is
+f5(n) = 3n-5 > is linear function
+f3(n) = log(n^n) > is logarithmics
+f1(n) = nlogn > is Superlinear, growing faster than linear  but slower than polynomial or exponential function
+f2(n) = n+n^1/2 > is Superlinear, growing faster than linear but slower than polynomial functions.
+f4(n) = 2^n > is Exponential growth, growing the fastest among the given functions.
+
+f5(n) ->f3(n) ->f1(n) ->f2(n) ->f4(n).
+==============================================================================================================
+
+Anagrams are different words with exactly the same letters. for example silent and listen are anagrams. Write a C++ function that takes two strings and returns true if they are anagrams  and returns false otherwise. determine the time complexity of the function you have written.
+
+,#include <iostream>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+bool areAnagrams(string str1, string str2) {
+    if (str1.length() != str2.length()) {
+        return false;
+    }
+
+    sort(str1.begin(),str1.end());
+    sort(str2.begin(),str2.end());
+
+    return str1 == str2;
+}
+
+int main() {
+    string word1 = "silent";
+    string word2 = "listen";
+
+    if (areAnagrams(word1, word2)) {
+        cout << "The words are anagrams." << endl;
+    } else {
+    cout << "The words are not anagrams." << endl;
+    }
+
+    return 0;
+}
+========================================================================================================
+
+Given an array of integers, produce another array where each element is replaced by the nearest greater element in the array. if an element  does not have a greater element to its right, replaced it with -1. for example if the input is [13 4 7 9 3], then the output would  be [-1 7 9 -1 -1 ]. Describe your algorithm to accomplish this task and give its time complexity.
+
+Answers:
+
+The time complexity of this algorithm is O(n), where n is the number of elements in the input array. This is because we iterate through each element in the array exactly once and perform constant time operations for each element
+
+function replaceWithNearestGreater(arr):
+    n = arr.length
+    output = new Array(n).fill(-1)
+    stack = []
+    
+    for i from n-1 to 0 step -1:
+        while stack is not empty and arr[i] >= arr[stack[-1]]:
+            index = stack.pop()
+            output[index] = arr[i]
+        
+        stack.push(i)
+    
+    return output
+==============================================================================================================
+
+compare and constrast Merge Sort and Quick Sort.
+
+Merge Sort and Quick Sort Comparison:
+Merge Sort and Quick Sort are both popular sorting algorithms used in computer science due to their efficiency and effectiveness. While they both aim to sort a list of elements, they differ in their approaches and performance characteristics.
+
+1. Approach:
+Merge Sort: It is a divide-and-conquer algorithm that divides the input array into two halves, recursively sorts the halves, and then merges them back together.
+
+Quick Sort: It is also a divide-and-conquer algorithm that selects a “pivot” element and partitions the array into two sub-arrays according to the pivot, then recursively sorts the sub-arrays.
+
+2. Pivot Selection:
+Merge Sort: Does not use pivot elements for sorting.
+
+Quick Sort: The choice of pivot element greatly influences the performance of Quick Sort. A good choice can lead to optimal performance, while a bad choice can result in worst-case time complexity.
+
+3. Time Complexity:
+
+Merge Sort: It has a time complexity of O(n log n) in all cases, making it consistent and reliable.
+
+Quick Sort: On average, it has a time complexity of O(n log n), but in the worst-case scenario, it can degrade to O(n^2) if poorly chosen pivots are consistently selected.
+
+4. Space Complexity:
+
+Merge Sort:is O(n) Requires additional space proportional to the size of the input array for the merging process.
+
+Quick Sort: is O(1) or O(log n) Generally has better space complexity than Merge Sort as it sorts in-place without needing additional space for merging.
+
+5. Stability:
+
+Merge Sort: It is stable, meaning that the relative order of equal elements is preserved during sorting.
+
+Quick Sort: It is not stable as the swapping of elements can change their relative order.
+
+In conclusion, while both Merge Sort and Quick Sort are efficient sorting algorithms with an average time complexity of O(n log n), they differ in their approach to sorting, pivot selection methods, space complexity, and stability.
+========================================================================================================
+
+A common problem for compilers and text editors is determining whether 
+the parentheses in a string are balanced and properly nested. For example, 
+the string ((())())() contains properly nested pairs of parentheses, which the 
+strings )()( and ()) do not. [4 marks]  
+(a) Give an algorithm that returns true if a string contains properly 
+nested and balanced parentheses, and false if otherwise
+
+checkbalancebracket(input_string)
+initialise the empty stack
+for each character in input_string
+if chracter is '('
+push '(' onto the stack
+else if character is ')'
+if stack is empty
+return false
+else pop  from the stack
+if stack is empty
+return false
+else return true
+endif
+endif
+endif 
+end for
+end procedure
+============================================================
+
+b.What is the time complexity of the algorithm used in (a)
+the overall time complexity of this algorithm is O(n)
+========================================================================
+
+Give an efficient algorithm to rearrange an array of n keys so that all the
+ negative keys precede all the nonnegative keys. Your algorithm must be
+ in-place, meaning you cannot allocate another array to temporarily hold
+ the items. How fast is your algorithm? 
+
+function rearrangeArray(array):
+    left = 0
+    right = length(array) - 1
+    
+    while left <= right:
+        if array[left] < 0:
+            left = left + 1
+        else if array[right] >= 0:
+            right = right - 1
+        else:
+            swap(array[left], array[right])
+            left = left + 1
+            right = right - 1
+    return array
+====================================================================================
+10:15 23/04/2024
+case1:
+T(n)= 2T(n/2)+n
+a=2
+b=2
+log a=1
+f(n)= n
+f(n)=Q(n)
+========================
+case2 => T(n)=(nlog n)
+
+T(n)=7T(n/4)+ n*n
+
+a=7,  b=4
+
+n^logb a = n^log4 7
+
+n^logb a=n^1
+========================
+case3:
+
+f(n)= n*n
+
+f(n)= Omega(n^logb a + c)
+
+af(n/b)= 7(n/16) < cf(n)
+
+ =7/16n*n < cf(n) <=> 7/16 n*n < cn*n
+
+for any c < 7/16 and n>=1
+
+the regularity conditions is satisfied
+==============================
+ T(n)=Q(n*n)
+
+case4:
+T(n)= 4T(n/2)+ n
+solution:
+a=4, b=2, f(n)=n, logb a=2
+f(n)= O(n^logb a-c)
+T(n)= Q(n*n)
+====================================
+
+case5:
+3T(n/2[1/2])+n
+= 3T(n/sqrt2)+n
+
+T(n)=Q(n^logb a)
+=Q(n^logsqrt2 3)
+ 
+
